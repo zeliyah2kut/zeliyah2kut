@@ -3,6 +3,19 @@
 	"properties": {
 		"activities": [
 			{
+main
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": []
+	}
+=======
 				"name": "ADF_COPY_DATA",
 				"type": "Copy",
 				"dependsOn": [],
