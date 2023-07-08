@@ -1,22 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "pipelinetest",
 	"properties": {
 		"activities": [
 			{
-main
-				"name": "Wait1",
-				"type": "Wait",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			}
-		],
-		"annotations": []
-	}
-=======
-				"name": "ADF_COPY_DATA",
+				"name": "this is copy activity",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -51,6 +38,20 @@ main
 						}
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "ls_AzureBlobStorage",
+								"type": "LinkedServiceReference"
+							},
+							"path": "container"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -172,23 +173,23 @@ main
 				},
 				"inputs": [
 					{
-						"referenceName": "ADF_DEMO_DATA",
+						"referenceName": "ds_csvfileblob",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ADF_DEMO_DATA",
+						"referenceName": "ds_csvfileblioboutput",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"folder": {
-			"name": "celecius"
+			"name": "Ben"
 		},
 		"annotations": [],
-		"lastPublishTime": "2023-06-19T12:56:29Z"
+		"lastPublishTime": "2023-06-18T14:30:28Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

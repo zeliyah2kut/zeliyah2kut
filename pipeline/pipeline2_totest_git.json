@@ -1,0 +1,20 @@
+{
+	"name": "pipeline2_totest_git",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1_test",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"folder": {
+			"name": "Ben"
+		},
+		"annotations": []
+	}
+}
