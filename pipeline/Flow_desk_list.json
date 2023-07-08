@@ -1,0 +1,86 @@
+{
+	"name": "Flow_desk_list",
+	"properties": {
+		"description": "Moved information from front desk. ",
+		"activities": [
+			{
+				"name": "Copy_front desk _demo_list",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Move",
+						"value": "Clone_front_desk_files."
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Track_intake_records",
+						"type": "DatasetReference",
+						"parameters": {
+							"Pipeline": "ab_23"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Front_desk_list",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"Pipeline": {
+				"type": "string",
+				"defaultValue": "ADC_12"
+			}
+		},
+		"folder": {
+			"name": "celecius"
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-06-25T13:14:15Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,22 @@
+{
+	"name": "pipelinetest1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"folder": {
+			"name": "celecius"
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-06-18T14:35:37Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
